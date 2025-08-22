@@ -2,14 +2,15 @@ package com.example.myandroidtodolist.service;
 
 
 import com.example.myandroidtodolist.api.TodoApi;
+import com.example.myandroidtodolist.model.Todo;
 import com.example.myandroidtodolist.model.TodoApiResponse;
 import retrofit2.Call;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class TodoService {
-
     private final TodoApi api;
+
 
     public TodoService() {
         Retrofit retrofit = new Retrofit.Builder()
@@ -23,5 +24,11 @@ public class TodoService {
     public Call<TodoApiResponse> getTodos() {
         return api.getTodos();
     }
+
+    public Call<Todo> getTodoById(int todoId) {
+        return api.getTodoById(todoId);
+    }
+
+
 }
 
